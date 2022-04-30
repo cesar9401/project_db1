@@ -1,0 +1,2411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+ Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="1.0.0-alpha" use-changelog="false" last-position="8850,1989" last-zoom="0.85" max-obj-count="92"
+	 default-owner="postgres"
+	 layers="Default layer"
+	 active-layers="0"
+	 layer-name-colors="#000000"
+	 layer-rect-colors="#b4b4b4"
+	 show-layer-names="false" show-layer-rects="false">
+<database name="horizonte_gt" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layers="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="airport" layers="0" fill-color="#e1e1e1">
+	<role name="postgres"/>
+</schema>
+
+<table name="PERSON" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="5960" y="3060"/>
+	<column name="person_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="full_name" not-null="true">
+		<type name="varchar" length="120"/>
+	</column>
+	<column name="gender">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="date_of_birth">
+		<type name="date" length="0"/>
+	</column>
+	<column name="type_person" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<constraint name="PERSON_pk" type="pk-constr" table="airport.&quot;PERSON&quot;">
+		<columns names="person_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="AIRPORT_USER" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="5180" y="3040"/>
+	<column name="username">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="password" not-null="true">
+		<type name="varchar" length="75"/>
+	</column>
+	<column name="email" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="miles_per_dollar" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="number_of_trips" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="total_miles" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="AIRPORT_USER_username_uq" type="uq-constr" table="airport.&quot;AIRPORT_USER&quot;">
+		<columns names="username" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="AIRPORT_USER_email_uq" type="uq-constr" table="airport.&quot;AIRPORT_USER&quot;">
+		<columns names="email" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="person_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="AIRPORT_USER_pk" index="2"/>
+		<object name="AIRPORT_USER_uq" index="1"/>
+		<object name="PERSON_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="AIRPORT_USER_has_one_PERSON" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#2792b5"
+	 src-table="airport.&quot;PERSON&quot;"
+	 dst-table="airport.&quot;AIRPORT_USER&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="COUNTRY" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="7420" y="3060"/>
+	<column name="country_id" not-null="true">
+		<type name="varchar" length="10"/>
+	</column>
+	<column name="name_country" not-null="true">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="population" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="continent" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="COUNTRY_pk" type="pk-constr" table="airport.&quot;COUNTRY&quot;">
+		<columns names="country_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="NATIONALITY" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="6640" y="3060"/>
+
+	<customidxs object-type="column">
+		<object name="person_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="NATIONALITY_pk" index="1"/>
+		<object name="PERSON_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="PERSON_has_many_NATIONALITY" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#0f872e"
+	 src-table="airport.&quot;PERSON&quot;"
+	 dst-table="airport.&quot;NATIONALITY&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="COUNTRY_has_many_NATIONALITY" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ceb701"
+	 src-table="airport.&quot;COUNTRY&quot;"
+	 dst-table="airport.&quot;NATIONALITY&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+	<constraint name="NATIONALITY_pk" type="pk-constr" alias="NATIONALITY_pk" protected="true" table="airport.&quot;NATIONALITY&quot;">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="ACCOUNT_TYPE" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="4280" y="3040"/>
+	<column name="accout_type_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="account_name" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="minimum_trips" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="minimum_miles" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="miles_per_dollar" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+	<column name="purchase_percentage" not-null="true">
+		<type name="decimal" length="3" precision="2"/>
+	</column>
+	<constraint name="ACCOUNT_TYPE_pk" type="pk-constr" table="airport.&quot;ACCOUNT_TYPE&quot;">
+		<columns names="accout_type_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="ACCOUNT_TYPE_has_many_AIRPORT_USER" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#49a15d"
+	 src-table="airport.&quot;ACCOUNT_TYPE&quot;"
+	 dst-table="airport.&quot;AIRPORT_USER&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT"/>
+
+<table name="TYPE_REWARD" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="2780" y="3800"/>
+	<column name="type_reward_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="reward_name" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="descrition" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="TYPE_REWARD_pk" type="pk-constr" table="airport.&quot;TYPE_REWARD&quot;">
+		<columns names="type_reward_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="REWARD" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="3500" y="3760"/>
+	<column name="reward_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="reward_name" not-null="true">
+		<type name="varchar" length="25"/>
+	</column>
+	<column name="quantity" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="REWARD_pk" type="pk-constr" table="airport.&quot;REWARD&quot;">
+		<columns names="reward_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="type_reward_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TYPE_REWARD_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="TYPE_REWARD_has_many_REWARD" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#6d149a"
+	 src-table="airport.&quot;TYPE_REWARD&quot;"
+	 dst-table="airport.&quot;REWARD&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT"/>
+
+<table name="ACCOUNT_HAS_REWARD" layers="0" collapse-mode="2" pagination="true" attribs-page="0" ext-attribs-page="0" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="4260" y="3780"/>
+</table>
+
+<relationship name="REWARD_has_many_ACCOUNT_HAS_REWARD" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#845653"
+	 src-table="airport.&quot;REWARD&quot;"
+	 dst-table="airport.&quot;ACCOUNT_HAS_REWARD&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="ACCOUNT_TYPE_has_many_ACCOUNT_HAS_REWARD" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#d96db6"
+	 src-table="airport.&quot;ACCOUNT_TYPE&quot;"
+	 dst-table="airport.&quot;ACCOUNT_HAS_REWARD&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT">
+	<constraint name="ACCOUNT_HAS_REWARD_pk" type="pk-constr" alias="ACCOUNT_HAS_REWARD_pk" protected="true" table="airport.&quot;ACCOUNT_HAS_REWARD&quot;">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="PAYMENT_METHOD" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="5220" y="2360"/>
+	<column name="card_numer" not-null="true">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="card_name" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="card_pin" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="due_date" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="PAYMENT_METHOD_pk" type="pk-constr" table="airport.&quot;PAYMENT_METHOD&quot;">
+		<columns names="card_numer" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="person_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="AIRPORT_USER_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="AIRPORT_USER_has_many_PAYMENT_METHOD" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#9ce5e0"
+	 src-table="airport.&quot;AIRPORT_USER&quot;"
+	 dst-table="airport.&quot;PAYMENT_METHOD&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT"/>
+
+<table name="PASSPORT" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="6940" y="3420"/>
+	<column name="number_passport" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="due_date" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="PASSPORT_pk" type="pk-constr" table="airport.&quot;PASSPORT&quot;">
+		<columns names="number_passport" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="country_id" index="3"/>
+		<object name="person_id" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="NATIONALITY_fk" index="1"/>
+		<object name="PASSPORT_uq" index="2"/>
+	</customidxs>
+</table>
+
+<relationship name="PASSPORT_has_one_NATIONALITY" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#fe518f"
+	 src-table="airport.&quot;NATIONALITY&quot;"
+	 dst-table="airport.&quot;PASSPORT&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<table name="AIRPORT" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="7420" y="3700"/>
+	<column name="airport_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="name_airport" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="city" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="address" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<constraint name="AIRPORT_pk" type="pk-constr" table="airport.&quot;AIRPORT&quot;">
+		<columns names="airport_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="country_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="COUNTRY_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="COUNTRY_has_many_AIRPORT" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#976220"
+	 src-table="airport.&quot;COUNTRY&quot;"
+	 dst-table="airport.&quot;AIRPORT&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT"/>
+
+<table name="TYPE_PLANE" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="8140" y="4720"/>
+	<column name="type_plane_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="number_tripulation" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="maximum_weight" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+	<column name="maximum_distance" not-null="true">
+		<type name="decimal" length="11" precision="2"/>
+	</column>
+	<column name="plane_weight">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="TYPE_PLANE_pk" type="pk-constr" table="airport.&quot;TYPE_PLANE&quot;">
+		<columns names="type_plane_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="PLANE" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="9380" y="5880"/>
+	<column name="plane_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="acquisition_date" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="first_flight" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="last_maintenance" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="PLANE_pk" type="pk-constr" table="airport.&quot;PLANE&quot;">
+		<columns names="plane_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="type_plane_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="TYPE_PLANE_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="TYPE_PLANE_has_many_PLANE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#61014c"
+	 src-table="airport.&quot;TYPE_PLANE&quot;"
+	 dst-table="airport.&quot;PLANE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="PLANE_STATUS" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="9380" y="6720"/>
+	<column name="plane_status_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="status_name" not-null="true">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="PLANE_STATUS_pk" type="pk-constr" table="airport.&quot;PLANE_STATUS&quot;">
+		<columns names="plane_status_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="PLANE_STATUS_has_many_PLANE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#608e1b"
+	 src-table="airport.&quot;PLANE_STATUS&quot;"
+	 dst-table="airport.&quot;PLANE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="FLIGHT_PLAN" layers="0" collapse-mode="2" max-obj-count="13" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="7440" y="4340"/>
+	<column name="flight_plan_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="flight_day" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="planeed_source_gate" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="boarding_time_expected" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+	<column name="departure_time_expected" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+	<column name="planned_gate" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="expected_arrival_time" not-null="true">
+		<type name="time" length="0"/>
+	</column>
+	<column name="distance" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+	<constraint name="FLIGHT_PLAN_pk" type="pk-constr" table="airport.&quot;FLIGHT_PLAN&quot;">
+		<columns names="flight_plan_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="airport_id_destination" index="3"/>
+		<object name="airport_id_origin" index="2"/>
+		<object name="type_plane_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="AIRPORT_fk" index="2"/>
+		<object name="AIRPORT_fk1" index="3"/>
+		<object name="TYPE_PLANE_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="TYPE_PLANE_has_many_FLIGHT_PLAN" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#620780"
+	 src-table="airport.&quot;TYPE_PLANE&quot;"
+	 dst-table="airport.&quot;FLIGHT_PLAN&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT"/>
+
+<table name="TEMPORAL_FLIGHT_PLAN" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="6600" y="4400"/>
+	<column name="start_date" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="finish_date" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="active" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="flight_plan_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="FLIGHT_PLAN_fk" index="1"/>
+		<object name="TEMPORAL_FLIGHT_PLAN_pk" index="2"/>
+		<object name="TEMPORAL_FLIGHT_PLAN_uq" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="TEMPORAL_FLIGHT_PLAN_has_one_FLIGHT_PLAN" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#235df6"
+	 src-table="airport.&quot;FLIGHT_PLAN&quot;"
+	 dst-table="airport.&quot;TEMPORAL_FLIGHT_PLAN&quot;"
+	 src-required="true" dst-required="false"
+	upd-action="RESTRICT"
+	del-action="RESTRICT">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="PHONE" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="7400" y="2400"/>
+	<column name="phone_number" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+</table>
+
+<relationship name="COUNTRY_has_many_PHONE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#618cb2"
+	 src-table="airport.&quot;COUNTRY&quot;"
+	 dst-table="airport.&quot;PHONE&quot;"
+	 src-required="true" dst-required="false">
+	<constraint name="PHONE_pk" type="pk-constr" table="airport.&quot;PHONE&quot;">
+		<columns names="phone_number" ref-type="src-columns"/>
+	</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="PERSON_HAS_PHONE" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="5960" y="2380"/>
+</table>
+
+<relationship name="PHONE_has_many_PERSON_HAS_PHONE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#fee8fb"
+	 src-table="airport.&quot;PHONE&quot;"
+	 dst-table="airport.&quot;PERSON_HAS_PHONE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<relationship name="PERSON_has_many_PERSON_HAS_PHONE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#6f3511"
+	 src-table="airport.&quot;PERSON&quot;"
+	 dst-table="airport.&quot;PERSON_HAS_PHONE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<constraint name="PERSON_HAS_PHONE_pk" type="pk-constr" alias="PERSON_HAS_PHONE_pk" protected="true" table="airport.&quot;PERSON_HAS_PHONE&quot;">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="IDENTIFICATION_TYPE" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="6280" y="4060"/>
+	<column name="identification_type_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="identification_name" not-null="true">
+		<type name="varchar" length="150"/>
+	</column>
+	<column name="type_description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="IDENTIFICATION_TYPE_pk" type="pk-constr" table="airport.&quot;IDENTIFICATION_TYPE&quot;">
+		<columns names="identification_type_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="IDENTIFICATION_DOCUMENT" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="6260" y="3540"/>
+	<column name="identification_id" not-null="true">
+		<type name="serial" length="120"/>
+	</column>
+	<column name="identification_code" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<constraint name="IDENTIFICATION_DOCUMENT_pk" type="pk-constr" table="airport.&quot;IDENTIFICATION_DOCUMENT&quot;">
+		<columns names="identification_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="identification_type_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="IDENTIFICATION_TYPE_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="IDENTIFICATION_TYPE_has_many_IDENTIFICATION_DOCUMENT" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#8aac64"
+	 src-table="airport.&quot;IDENTIFICATION_TYPE&quot;"
+	 dst-table="airport.&quot;IDENTIFICATION_DOCUMENT&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="NATIONALITY_has_many_IDENTIFICATION_DOCUMENT" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3918c5"
+	 src-table="airport.&quot;NATIONALITY&quot;"
+	 dst-table="airport.&quot;IDENTIFICATION_DOCUMENT&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="BENEFIT" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="6160" y="6640"/>
+	<column name="benefit_name" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="benefit_description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="BENEFIT_pk" type="pk-constr" table="airport.&quot;BENEFIT&quot;">
+		<columns names="benefit_name" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="CLASS" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="7520" y="6220"/>
+	<column name="class_name" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="class_description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="CLASS_pk" type="pk-constr" table="airport.&quot;CLASS&quot;">
+		<columns names="class_name" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="CLASS_HAS_BENEFIT" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="7500" y="6600"/>
+	<column name="quantity" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="benefit_observation" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="benefit_name" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="BENEFIT_fk" index="0"/>
+		<object name="CLASS_HAS_BENEFIT_pk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="BENEFIT_has_many_CLASS_HAS_BENEFIT" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ada1c6"
+	 src-table="airport.&quot;BENEFIT&quot;"
+	 dst-table="airport.&quot;CLASS_HAS_BENEFIT&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="CLASS_has_many_CLASS_HAS_BENEFIT" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#39f217"
+	 src-table="airport.&quot;CLASS&quot;"
+	 dst-table="airport.&quot;CLASS_HAS_BENEFIT&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<constraint name="CLASS_HAS_BENEFIT_pk" type="pk-constr" alias="CLASS_HAS_BENEFIT_pk" protected="true" table="airport.&quot;CLASS_HAS_BENEFIT&quot;">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="SEAT" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="8420" y="5660"/>
+	<column name="row_seat" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="col_seat" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="seat_observation" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="seat_status" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="plane_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="PLANE_fk" index="1"/>
+		<object name="SEAT_pk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="PLANE_has_many_SEAT" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#d9e532"
+	 src-table="airport.&quot;PLANE&quot;"
+	 dst-table="airport.&quot;SEAT&quot;"
+	 src-required="true" dst-required="false">
+	<constraint name="SEAT_pk" type="pk-constr" table="airport.&quot;SEAT&quot;">
+		<columns names="row_seat,col_seat" ref-type="src-columns"/>
+	</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="CLASS_has_many_SEAT" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#75c35b"
+	 src-table="airport.&quot;CLASS&quot;"
+	 dst-table="airport.&quot;SEAT&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="TICKET_PRICE" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="7500" y="5260"/>
+	<column name="ticket_price_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="ticket_price" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+	<column name="is_for_young" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="round_trip_disccount" not-null="true">
+		<type name="decimal" length="3" precision="2"/>
+	</column>
+	<column name="percent_sold_out" not-null="true">
+		<type name="decimal" length="3" precision="2"/>
+	</column>
+	<constraint name="TICKET_PRICE_pk" type="pk-constr" table="airport.&quot;TICKET_PRICE&quot;">
+		<columns names="ticket_price_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="class_name" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="CLASS_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="CLASS_has_many_TICKET_PRICE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3b9254"
+	 src-table="airport.&quot;CLASS&quot;"
+	 dst-table="airport.&quot;TICKET_PRICE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="FLIGHT_PLAN_has_many_TICKET_PRICE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#d0afdc"
+	 src-table="airport.&quot;FLIGHT_PLAN&quot;"
+	 dst-table="airport.&quot;TICKET_PRICE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="TICKET" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="10160" y="5200"/>
+	<column name="ticket_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="status" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="TICKET_pk" type="pk-constr" table="airport.&quot;TICKET&quot;">
+		<columns names="ticket_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="col_seat" index="2"/>
+		<object name="flight_id" index="5"/>
+		<object name="plane_id" index="3"/>
+		<object name="row_seat" index="1"/>
+		<object name="ticket_price_id" index="4"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="FLIGHT_fk" index="3"/>
+		<object name="SEAT_fk" index="1"/>
+		<object name="TICKET_PRICE_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="FLIGHT" layers="0" collapse-mode="2" max-obj-count="14" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="9020" y="4240"/>
+	<column name="flight_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="expected_date_flight" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="expected_board_flight" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="expected_arrival_time" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="board_gate" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="date_flight" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="board_flight" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="arrival_time" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="flight_observation" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="flight_status" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<constraint name="FLIGHT_pk" type="pk-constr" table="airport.&quot;FLIGHT&quot;">
+		<columns names="flight_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="flight_plan_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="FLIGHT_PLAN_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="FLIGHT_PLAN_has_many_FLIGHT" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1b0994"
+	 src-table="airport.&quot;FLIGHT_PLAN&quot;"
+	 dst-table="airport.&quot;FLIGHT&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="PLANE_has_many_FLIGHT" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#cb68e7"
+	 src-table="airport.&quot;PLANE&quot;"
+	 dst-table="airport.&quot;FLIGHT&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="SEAT_has_many_TICKET" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#5c44c3"
+	 src-table="airport.&quot;SEAT&quot;"
+	 dst-table="airport.&quot;TICKET&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="TICKET_PRICE_has_many_TICKET" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#886494"
+	 src-table="airport.&quot;TICKET_PRICE&quot;"
+	 dst-table="airport.&quot;TICKET&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="FLIGHT_has_many_TICKET" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#6b41d7"
+	 src-table="airport.&quot;FLIGHT&quot;"
+	 dst-table="airport.&quot;TICKET&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="INSURANCE" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="11680" y="6280"/>
+	<column name="insurance_percentage" not-null="true">
+		<type name="decimal" length="3" precision="2"/>
+	</column>
+	<column name="insurance_observations" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="class_name" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="CLASS_fk" index="1"/>
+		<object name="INSURANCE_pk" index="0"/>
+		<object name="INSURANCE_uq" index="2"/>
+	</customidxs>
+</table>
+
+<relationship name="INSURANCE_has_one_CLASS" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#71d571"
+	 src-table="airport.&quot;CLASS&quot;"
+	 dst-table="airport.&quot;INSURANCE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="STAFF" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="6880" y="1820"/>
+	<column name="department" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="staff_salary" not-null="true">
+		<type name="decimal" length="9" precision="2"/>
+	</column>
+	<column name="years_of_experience" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="years_of_work" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="person_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="PERSON_fk" index="0"/>
+		<object name="STAFF_pk" index="2"/>
+		<object name="STAFF_uq" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="STAFF_has_one_PERSON" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#d2ee0c"
+	 src-table="airport.&quot;PERSON&quot;"
+	 dst-table="airport.&quot;STAFF&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="STAFF_SCHEDULE" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="5500" y="1800"/>
+	<column name="staff_schedule_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="start_tiime" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="ending_time" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="total_hours" not-null="true">
+		<type name="decimal" length="5" precision="2"/>
+	</column>
+	<column name="total_overtime" not-null="true">
+		<type name="decimal" length="5" precision="2"/>
+	</column>
+	<column name="schedule_observation">
+		<type name="varchar" length="255"/>
+	</column>
+	<constraint name="STAFF_SCHEDULE_pk" type="pk-constr" table="airport.&quot;STAFF_SCHEDULE&quot;">
+		<columns names="staff_schedule_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="person_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="STAFF_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="STAFF_has_many_STAFF_SCHEDULE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3499ef"
+	 src-table="airport.&quot;STAFF&quot;"
+	 dst-table="airport.&quot;STAFF_SCHEDULE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="ON_BOARD_STAFF" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="8080" y="1840"/>
+	<column name="work_position" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="flight_hours" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+	<column name="number_of_flights" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="person_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="ON_BOARD_STAFF_pk" index="0"/>
+		<object name="ON_BOARD_STAFF_uq" index="2"/>
+		<object name="STAFF_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="ON_BOARD_STAFF_has_one_STAFF" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#e44e5c"
+	 src-table="airport.&quot;STAFF&quot;"
+	 dst-table="airport.&quot;ON_BOARD_STAFF&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="STAFF_BREAK_SICK_DAY" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="7420" y="1080"/>
+	<column name="break_sick_day_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="start_date" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="ending_date" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="sick_break_reason" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="STAFF_BREAK_SICK_DAY_pk" type="pk-constr" table="airport.&quot;STAFF_BREAK_SICK_DAY&quot;">
+		<columns names="break_sick_day_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="person_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="STAFF_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="STAFF_has_many_STAFF_SICK_DAY" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#bb1c71"
+	 src-table="airport.&quot;STAFF&quot;"
+	 dst-table="airport.&quot;STAFF_BREAK_SICK_DAY&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="STAFF_REQUEST" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="6300" y="1080"/>
+	<column name="request_date" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="request_description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="request_status" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="break_sick_day_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="STAFF_BREAK_SICK_DAY_fk" index="0"/>
+		<object name="STAFF_REQUEST_uq" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="STAFF_REQUEST_has_one_STAFF_BREAK_SICK_DAY" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#88df29"
+	 src-table="airport.&quot;STAFF_BREAK_SICK_DAY&quot;"
+	 dst-table="airport.&quot;STAFF_REQUEST&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="STAFF_ON_THE_PLANE" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="9960" y="1760"/>
+	<column name="staff_observation">
+		<type name="text" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="flight_id" index="0"/>
+		<object name="person_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="FLIGHT_fk" index="2"/>
+		<object name="ON_BOARD_STAFF_fk" index="0"/>
+		<object name="STAFF_ON_THE_PLANE_pk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="ON_BOARD_STAFF_has_many_STAFF_ON_THE_PLANE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#fe3c1a"
+	 src-table="airport.&quot;ON_BOARD_STAFF&quot;"
+	 dst-table="airport.&quot;STAFF_ON_THE_PLANE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="FLIGHT_STATUS" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="11180" y="3540"/>
+	<column name="status_name" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="status_description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="FLIGHT_STATUS_pk" type="pk-constr" table="airport.&quot;FLIGHT_STATUS&quot;">
+		<columns names="status_name" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="FLIGHT_HAS_STATUS" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="11120" y="3820"/>
+	<column name="created_at" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="status_observation">
+		<type name="varchar" length="255"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="flight_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="FLIGHT_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="FLIGHT_has_many_FLIGHT_HAS_STATUS" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#731697"
+	 src-table="airport.&quot;FLIGHT&quot;"
+	 dst-table="airport.&quot;FLIGHT_HAS_STATUS&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="FLIGHT_STATUS_has_many_FLIGHT_HAS_STATUS" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#94fa98"
+	 src-table="airport.&quot;FLIGHT_STATUS&quot;"
+	 dst-table="airport.&quot;FLIGHT_HAS_STATUS&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="TICKET_PURCHASE" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="9240" y="2340"/>
+	<column name="purchase_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="date_purchase" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="total_purchase" not-null="true">
+		<type name="decimal" length="12" precision="2"/>
+	</column>
+	<column name="modification_date">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="cancellation_date">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="TICKET_PURCHASE_pk" type="pk-constr" table="airport.&quot;TICKET_PURCHASE&quot;">
+		<columns names="purchase_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="person_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="PERSON_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="PERSON_has_many_TICKET_PURCHASE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#00c9db"
+	 src-table="airport.&quot;PERSON&quot;"
+	 dst-table="airport.&quot;TICKET_PURCHASE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="PURCHASE_PAYMENT_METHOD" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="8980" y="1140"/>
+	<column name="purchase_total" not-null="true">
+		<type name="decimal" length="10" precision="2"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="card_numer" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="PAYMENT_METHOD_fk" index="0"/>
+		<object name="PURCHASE_PAYMENT_METHOD_pk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="PAYMENT_METHOD_has_many_PURCHASE_PAYMENT_METHOD" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#e6b25e"
+	 src-table="airport.&quot;PAYMENT_METHOD&quot;"
+	 dst-table="airport.&quot;PURCHASE_PAYMENT_METHOD&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="DETAIL_TICKET_PURCHASE" layers="0" collapse-mode="2" max-obj-count="9" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="10620" y="2420"/>
+	<column name="ticket_price" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+	<column name="miles_discount" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+	<column name="round_trip_discount" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+	<column name="insurance_price" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+	<column name="ticket_subtotal" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="number_passport" index="2"/>
+		<object name="purchase_id" index="0"/>
+		<object name="ticket_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="DETAIL_TICKET_PURCHASE_pk" index="1"/>
+		<object name="DETAIL_TICKET_PURCHASE_uq" index="3"/>
+		<object name="PASSPORT_fk" index="4"/>
+		<object name="TICKET_PURCHASE_fk" index="0"/>
+		<object name="TICKET_fk" index="2"/>
+	</customidxs>
+</table>
+
+<relationship name="TICKET_PURCHASE_has_many_DETAIL_TICKET_PURCHASE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1883d6"
+	 src-table="airport.&quot;TICKET_PURCHASE&quot;"
+	 dst-table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="DETAIL_TICKET_PURCHASE_has_one_TICKET" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a18049"
+	 src-table="airport.&quot;TICKET&quot;"
+	 dst-table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<constraint name="DETAIL_TICKET_PURCHASE_pk" type="pk-constr" alias="DETAIL_TICKET_PURCHASE_pk" protected="true" table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="PASSPORT_has_many_DETAIL_TICKET_PURCHASE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#824a4c"
+	 src-table="airport.&quot;PASSPORT&quot;"
+	 dst-table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="TICKET_INSURANCE" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="11680" y="3300"/>
+	<column name="insurance_total" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+	<column name="insurance_observation" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="class_name" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="INSURANCE_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="INSURANCE_has_many_TICKET_INSURANCE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#5955b8"
+	 src-table="airport.&quot;INSURANCE&quot;"
+	 dst-table="airport.&quot;TICKET_INSURANCE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="CANCELED_TICKET_PURCHASE" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="9880" y="3240"/>
+	<column name="cancellation_date" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="cancellation_details" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="purchase_id" index="0"/>
+		<object name="ticket_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="CANCELED_TICKET_PURCHASE_pk" index="1"/>
+		<object name="TICKET_PURCHASE_fk" index="0"/>
+		<object name="TICKET_fk" index="2"/>
+	</customidxs>
+</table>
+
+<relationship name="TICKET_PURCHASE_has_many_CANCELED_TICKET_PURCHASE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#1a18ed"
+	 src-table="airport.&quot;TICKET_PURCHASE&quot;"
+	 dst-table="airport.&quot;CANCELED_TICKET_PURCHASE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="TICKET_has_many_CANCELED_TICKET_PURCHASE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#4130eb"
+	 src-table="airport.&quot;TICKET&quot;"
+	 dst-table="airport.&quot;CANCELED_TICKET_PURCHASE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<constraint name="CANCELED_TICKET_PURCHASE_pk" type="pk-constr" alias="CANCELED_TICKET_PURCHASE_pk" protected="true" table="airport.&quot;CANCELED_TICKET_PURCHASE&quot;">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="TICKET_INSURANCE_has_one_CANCELED_TICKET_PURCHASE" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#35b25d"
+	 src-table="airport.&quot;CANCELED_TICKET_PURCHASE&quot;"
+	 dst-table="airport.&quot;TICKET_INSURANCE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<relationship name="FLIGHT_has_many_STAFF_ON_THE_PLANE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#9b4b65"
+	 src-table="airport.&quot;FLIGHT&quot;"
+	 dst-table="airport.&quot;STAFF_ON_THE_PLANE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<constraint name="STAFF_ON_THE_PLANE_pk" type="pk-constr" alias="STAFF_ON_THE_PLANE_pk" protected="true" table="airport.&quot;STAFF_ON_THE_PLANE&quot;">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="CHILD_SUPERVISOR" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="12020" y="2600"/>
+	<column name="type_supervisor" not-null="true">
+		<type name="varchar" length="40"/>
+	</column>
+	<column name="supervisor_observations">
+		<type name="text" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="purchase_id" index="0"/>
+		<object name="ticket_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="CHILD_SUPERVISOR_pk" index="2"/>
+		<object name="CHILD_SUPERVISOR_uq" index="1"/>
+		<object name="DETAIL_TICKET_PURCHASE_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="CHILD_SUPERVISOR_has_one_DETAIL_TICKET_PURCHASE" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#37cfa2"
+	 src-table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;"
+	 dst-table="airport.&quot;CHILD_SUPERVISOR&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<table name="KNOWN_SUPERVISOR" layers="0" collapse-mode="2" pagination="true" attribs-page="0" ext-attribs-page="0" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="11360" y="2240"/>
+</table>
+
+<table name="STAFF_SUPERVISOR" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="11420" y="1800"/>
+</table>
+
+<relationship name="STAFF_SUPERVISOR_has_one_CHILD_SUPERVISOR" type="rel11" layers="0"
+	 src-col-pattern="{sc}_child"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#b1ac0b"
+	 src-table="airport.&quot;CHILD_SUPERVISOR&quot;"
+	 dst-table="airport.&quot;STAFF_SUPERVISOR&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<relationship name="KNOWN_SUPERVISOR_has_one_CHILD_SUPERVISOR" type="rel11" layers="0"
+	 src-col-pattern="{sc}_child"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#7578b7"
+	 src-table="airport.&quot;CHILD_SUPERVISOR&quot;"
+	 dst-table="airport.&quot;KNOWN_SUPERVISOR&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<relationship name="DETAIL_TICKET_PURCHASE_has_many_KNOWN_SUPERVISOR" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_known"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#6a2fe0"
+	 src-table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;"
+	 dst-table="airport.&quot;KNOWN_SUPERVISOR&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="STAFF_ON_THE_PLANE_has_many_STAFF_SUPERVISOR" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#9c2b4a"
+	 src-table="airport.&quot;STAFF_ON_THE_PLANE&quot;"
+	 dst-table="airport.&quot;STAFF_SUPERVISOR&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="AIRPORT_has_many_FLIGHT_PLAN" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_origin"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3be1fb"
+	 src-table="airport.&quot;AIRPORT&quot;"
+	 dst-table="airport.&quot;FLIGHT_PLAN&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="AIRPORT_has_many_FLIGHT_PLAN_destination" type="rel1n" layers="0"
+	 src-col-pattern="{sc}_destination"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#9c891a"
+	 src-table="airport.&quot;AIRPORT&quot;"
+	 dst-table="airport.&quot;FLIGHT_PLAN&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="ANIMAL_SPECIE" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="15700" y="3200"/>
+	<column name="name_specie" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="specie_description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="ANIMAL_SPECIE_pk" type="pk-constr" table="airport.&quot;ANIMAL_SPECIE&quot;">
+		<columns names="name_specie" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="CAGE" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="14720" y="3660"/>
+	<column name="cage_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="cage_name" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="cage_weight" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+	<column name="max_volume" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+	<column name="cage_observations">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="CAGE_pk" type="pk-constr" table="airport.&quot;CAGE&quot;">
+		<columns names="cage_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="PET_RULE" layers="0" collapse-mode="2" max-obj-count="8" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="14740" y="3140"/>
+	<column name="rule_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="name_rule" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="rule_price" not-null="true">
+		<type name="decimal" length="5" precision="2"/>
+	</column>
+	<column name="rule_description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="PET_RULE_pk" type="pk-constr" table="airport.&quot;PET_RULE&quot;">
+		<columns names="rule_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="cage_id" index="3"/>
+		<object name="name_specie" index="2"/>
+		<object name="place_for_pet_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="ANIMAL_SPECIE_fk" index="0"/>
+		<object name="CAGE_fk" index="1"/>
+		<object name="PLACE_FOR_PET_fk" index="3"/>
+	</customidxs>
+</table>
+
+<relationship name="ANIMAL_SPECIE_has_many_PET_RULE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#720646"
+	 src-table="airport.&quot;ANIMAL_SPECIE&quot;"
+	 dst-table="airport.&quot;PET_RULE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="CAGE_has_many_PET_RULE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#9bcaa9"
+	 src-table="airport.&quot;CAGE&quot;"
+	 dst-table="airport.&quot;PET_RULE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="PLACE_FOR_PET" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="15700" y="3640"/>
+	<column name="place_for_pet_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="name_place" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="min_weight" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+	<column name="max_weight" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+	<constraint name="PLACE_FOR_PET_pk" type="pk-constr" table="airport.&quot;PLACE_FOR_PET&quot;">
+		<columns names="place_for_pet_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="PLACE_FOR_PET_has_many_PET_RULE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#aa44e5"
+	 src-table="airport.&quot;PLACE_FOR_PET&quot;"
+	 dst-table="airport.&quot;PET_RULE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="PET_TICKET" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="13840" y="3140"/>
+	<column name="name_pet" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="weight_pet" not-null="true">
+		<type name="decimal" length="5" precision="2"/>
+	</column>
+	<column name="ticket_total" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="purchase_id" index="0"/>
+		<object name="rule_id" index="2"/>
+		<object name="ticket_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="DETAIL_TICKET_PURCHASE_fk" index="2"/>
+		<object name="PET_RULE_fk" index="0"/>
+		<object name="PET_TICKET_pk" index="1"/>
+		<object name="PET_TICKET_uq" index="3"/>
+	</customidxs>
+</table>
+
+<relationship name="PET_RULE_has_many_PET_TICKET" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#e34f6a"
+	 src-table="airport.&quot;PET_RULE&quot;"
+	 dst-table="airport.&quot;PET_TICKET&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="PET_TICKET_has_one_DETAIL_TICKET_PURCHASE" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#cbb91f"
+	 src-table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;"
+	 dst-table="airport.&quot;PET_TICKET&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<table name="VACCINE" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="13860" y="4180"/>
+	<column name="vaccine_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="vaccine_name" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="vaccine_description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="VACCINE_pk" type="pk-constr" table="airport.&quot;VACCINE&quot;">
+		<columns names="vaccine_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="PET_HAS_VACCINE" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="13860" y="3760"/>
+	<column name="vaccine_application_date" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="purchase_id" index="1"/>
+		<object name="ticket_id" index="2"/>
+		<object name="vaccine_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="PET_TICKET_fk" index="1"/>
+		<object name="VACCINE_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="VACCINE_has_many_PET_HAS_VACCINE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#0f6a4c"
+	 src-table="airport.&quot;VACCINE&quot;"
+	 dst-table="airport.&quot;PET_HAS_VACCINE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="PET_TICKET_has_many_PET_HAS_VACCINE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a7787a"
+	 src-table="airport.&quot;PET_TICKET&quot;"
+	 dst-table="airport.&quot;PET_HAS_VACCINE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<constraint name="PET_HAS_VACCINE_pk" type="pk-constr" alias="PET_HAS_VACCINE_pk" protected="true" table="airport.&quot;PET_HAS_VACCINE&quot;">
+		</constraint>
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<table name="LUGGAGE_RULE" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="13740" y="2200"/>
+	<column name="luggage_rule_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="type_luggage" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="price_luggage" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+	<column name="luggage_description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="LUGGAGE_RULE_pk" type="pk-constr" table="airport.&quot;LUGGAGE_RULE&quot;">
+		<columns names="luggage_rule_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="LUGGAGE_HAND_RULE" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="14500" y="2100"/>
+	<column name="luggage_dimensions" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="luggage_rule_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="LUGGAGE_HAND_RULE_uq" index="1"/>
+		<object name="LUGGAGE_RULE_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="LUGGAGE_HAND_RULE_has_one_LUGGAGE_RULE" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#12ec2b"
+	 src-table="airport.&quot;LUGGAGE_RULE&quot;"
+	 dst-table="airport.&quot;LUGGAGE_HAND_RULE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="LUGGAGE_CHECKED_RULE" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="14500" y="2400"/>
+	<column name="max_weight" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="luggage_rule_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="LUGGAGE_RULE_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="LUGGAGE_RULE_has_many_LUGGAGE_CHECKED_RULE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#b97062"
+	 src-table="airport.&quot;LUGGAGE_RULE&quot;"
+	 dst-table="airport.&quot;LUGGAGE_CHECKED_RULE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="LUGGAGE_PER_TICKET" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="12740" y="2180"/>
+	<column name="luggage_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="luggage_subtotal" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+	<column name="luggage_description" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<constraint name="LUGGAGE_PER_TICKET_pk" type="pk-constr" table="airport.&quot;LUGGAGE_PER_TICKET&quot;">
+		<columns names="luggage_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="luggage_rule_id" index="1"/>
+		<object name="purchase_id" index="2"/>
+		<object name="ticket_id" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="DETAIL_TICKET_PURCHASE_fk" index="1"/>
+		<object name="LUGGAGE_RULE_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="LUGGAGE_RULE_has_many_LUGGAGE_PER_TICKET" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3c9a8b"
+	 src-table="airport.&quot;LUGGAGE_RULE&quot;"
+	 dst-table="airport.&quot;LUGGAGE_PER_TICKET&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="DETAIL_TICKET_PURCHASE_has_many_LUGGAGE_PER_TICKET" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#c6ff12"
+	 src-table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;"
+	 dst-table="airport.&quot;LUGGAGE_PER_TICKET&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="SERVICE" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="14080" y="4960"/>
+	<column name="service_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="service_price" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+	<column name="type_of_service" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="service_available" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="service_description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="SERVICE_pk" type="pk-constr" table="airport.&quot;SERVICE&quot;">
+		<columns names="service_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="FOOD_MENU" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="13760" y="5460"/>
+	<column name="menu_name" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="food_ingredients" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="food_menu_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="FOOD_MENU_pk" index="0"/>
+		<object name="FOOD_MENU_uq" index="2"/>
+		<object name="SERVICE_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="FOOD_MENU_has_one_SERVICE" type="rel11" layers="0"
+	 src-col-pattern="food_menu_id"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#b83aeb"
+	 src-table="airport.&quot;SERVICE&quot;"
+	 dst-table="airport.&quot;FOOD_MENU&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="DIGITAL_SERVICE" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="14380" y="5480"/>
+	<column name="name_digital_service" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="digital_observations" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="service_id" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="DIGITAL_SERVICE_pk" index="0"/>
+		<object name="DIGITAL_SERVICE_uq" index="2"/>
+		<object name="SERVICE_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="DIGITAL_SERVICE_has_one_SERVICE" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#c6d863"
+	 src-table="airport.&quot;SERVICE&quot;"
+	 dst-table="airport.&quot;DIGITAL_SERVICE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="GENRE" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="16540" y="4980"/>
+	<column name="name_genre" not-null="true">
+		<type name="varchar" length="75"/>
+	</column>
+	<column name="genre_description" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="GENRE_pk" type="pk-constr" table="airport.&quot;GENRE&quot;">
+		<columns names="name_genre" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="MOVIE" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="15020" y="4920"/>
+	<column name="movie_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="movie_title" not-null="true">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="movie_classification" not-null="true">
+		<type name="varchar" length="75"/>
+	</column>
+	<column name="movie_duration" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="movie_synopsis" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="MOVIE_pk" type="pk-constr" table="airport.&quot;MOVIE&quot;">
+		<columns names="movie_id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="service_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="MOVIE_uq" index="2"/>
+		<object name="SERVICE_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="MOVIE_HAS_GENRE" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="15820" y="4960"/>
+
+	<customidxs object-type="column">
+		<object name="movie_id" index="0"/>
+		<object name="name_genre" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="GENRE_fk" index="0"/>
+		<object name="MOVIE_HAS_GENRE_pk" index="1"/>
+		<object name="MOVIE_fk" index="2"/>
+	</customidxs>
+</table>
+
+<relationship name="GENRE_has_many_MOVIE_HAS_GENRE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#577a60"
+	 src-table="airport.&quot;GENRE&quot;"
+	 dst-table="airport.&quot;MOVIE_HAS_GENRE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="MOVIE_has_many_MOVIE_HAS_GENRE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#98734b"
+	 src-table="airport.&quot;MOVIE&quot;"
+	 dst-table="airport.&quot;MOVIE_HAS_GENRE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<constraint name="MOVIE_HAS_GENRE_pk" type="pk-constr" alias="MOVIE_HAS_GENRE_pk" protected="true" table="airport.&quot;MOVIE_HAS_GENRE&quot;">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="ACTOR" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="15860" y="5520"/>
+	<column name="actor_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="actor_name" not-null="true">
+		<type name="varchar" length="150"/>
+	</column>
+	<column name="actor_birthday" not-null="true">
+		<type name="date" length="0"/>
+	</column>
+	<column name="actor_gender" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="ACTOR_pk" type="pk-constr" table="airport.&quot;ACTOR&quot;">
+		<columns names="actor_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="MOVIE_HAS_ACTOR" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="15060" y="5520"/>
+</table>
+
+<relationship name="ACTOR_has_many_MOVIE_HAS_ACTOR" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#561de3"
+	 src-table="airport.&quot;ACTOR&quot;"
+	 dst-table="airport.&quot;MOVIE_HAS_ACTOR&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="MOVIE_has_many_MOVIE_HAS_ACTOR" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#2eec6e"
+	 src-table="airport.&quot;MOVIE&quot;"
+	 dst-table="airport.&quot;MOVIE_HAS_ACTOR&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<relationship name="MOVIE_has_one_SERVICE" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#36837f"
+	 src-table="airport.&quot;SERVICE&quot;"
+	 dst-table="airport.&quot;MOVIE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<constraint name="MOVIE_SERVICE_uq" type="uq-constr" table="airport.&quot;MOVIE&quot;">
+	<columns names="service_id" ref-type="src-columns"/>
+</constraint>
+
+<table name="FLIGHT_HAS_SERVICE" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="12740" y="4960"/>
+	<column name="service_stock" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="flight_service_observations">
+		<type name="text" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="flight_id" index="0"/>
+		<object name="service_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="FLIGHT_fk" index="1"/>
+		<object name="SERVICE_fk" index="0"/>
+	</customidxs>
+</table>
+
+<relationship name="SERVICE_has_many_FLIGHT_HAS_SERVICE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#6523ec"
+	 src-table="airport.&quot;SERVICE&quot;"
+	 dst-table="airport.&quot;FLIGHT_HAS_SERVICE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="FLIGHT_has_many_FLIGHT_HAS_SERVICE" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#913ec6"
+	 src-table="airport.&quot;FLIGHT&quot;"
+	 dst-table="airport.&quot;FLIGHT_HAS_SERVICE&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<constraint name="FLIGHT_HAS_SERVICE_pk" type="pk-constr" alias="FLIGHT_HAS_SERVICE_pk" protected="true" table="airport.&quot;FLIGHT_HAS_SERVICE&quot;">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="PURCHASE_FLIGHT" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="12820" y="3400"/>
+	<column name="purchase_id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="purchase_total" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+	<constraint name="PURCHASE_FLIGHT_pk" type="pk-constr" table="airport.&quot;PURCHASE_FLIGHT&quot;">
+		<columns names="purchase_id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="PURCHASE_FLIGHT_DETAIL" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="12840" y="4100"/>
+	<column name="purchase_quantity" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="service_price" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+	<column name="purchase_total" not-null="true">
+		<type name="decimal" length="8" precision="2"/>
+	</column>
+</table>
+
+<relationship name="PURCHASE_FLIGHT_has_many_PURCHASE_FLIGHT_DETAIL" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#e8644f"
+	 src-table="airport.&quot;PURCHASE_FLIGHT&quot;"
+	 dst-table="airport.&quot;PURCHASE_FLIGHT_DETAIL&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
+
+<table name="ROUND_TRIP_TICKET" layers="0" collapse-mode="2" max-obj-count="0" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="11180" y="3060"/>
+</table>
+
+</dbmodel>
