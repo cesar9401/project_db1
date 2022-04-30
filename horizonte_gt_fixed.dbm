@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
  Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="1.0.0-alpha" use-changelog="false" last-position="8850,1989" last-zoom="0.85" max-obj-count="92"
+<dbmodel pgmodeler-ver="1.0.0-alpha" use-changelog="false" last-position="7348,890" last-zoom="0.65" max-obj-count="99"
 	 default-owner="postgres"
 	 layers="Default layer"
 	 active-layers="0"
@@ -1387,21 +1387,23 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-required="true" dst-required="false"
 	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
 
-<table name="PURCHASE_PAYMENT_METHOD" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="PURCHASE_PAYMENT_METHOD" layers="0" collapse-mode="2" max-obj-count="3" z-value="0">
 	<schema name="airport"/>
 	<role name="postgres"/>
 	<position x="8980" y="1140"/>
 	<column name="purchase_total" not-null="true">
-		<type name="decimal" length="10" precision="2"/>
+		<type name="decimal" length="12" precision="2"/>
 	</column>
 
 	<customidxs object-type="column">
 		<object name="card_numer" index="0"/>
+		<object name="purchase_id" index="1"/>
 	</customidxs>
 
 	<customidxs object-type="constraint">
 		<object name="PAYMENT_METHOD_fk" index="0"/>
 		<object name="PURCHASE_PAYMENT_METHOD_pk" index="1"/>
+		<object name="TICKET_PURCHASE_fk" index="2"/>
 	</customidxs>
 </table>
 
@@ -1596,7 +1598,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="CHILD_SUPERVISOR" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="airport"/>
 	<role name="postgres"/>
-	<position x="12020" y="2600"/>
+	<position x="12040" y="2100"/>
 	<column name="type_supervisor" not-null="true">
 		<type name="varchar" length="40"/>
 	</column>
@@ -1631,7 +1633,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="KNOWN_SUPERVISOR" layers="0" collapse-mode="2" pagination="true" attribs-page="0" ext-attribs-page="0" max-obj-count="4" z-value="0">
 	<schema name="airport"/>
 	<role name="postgres"/>
-	<position x="11360" y="2240"/>
+	<position x="11080" y="2100"/>
 </table>
 
 <table name="STAFF_SUPERVISOR" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
@@ -1944,7 +1946,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="LUGGAGE_RULE" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
 	<schema name="airport"/>
 	<role name="postgres"/>
-	<position x="13740" y="2200"/>
+	<position x="13880" y="2200"/>
 	<column name="luggage_rule_id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
@@ -2024,7 +2026,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 <table name="LUGGAGE_PER_TICKET" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
 	<schema name="airport"/>
 	<role name="postgres"/>
-	<position x="12740" y="2180"/>
+	<position x="13200" y="2160"/>
 	<column name="luggage_id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
@@ -2045,8 +2047,8 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	</customidxs>
 
 	<customidxs object-type="constraint">
-		<object name="DETAIL_TICKET_PURCHASE_fk" index="1"/>
 		<object name="LUGGAGE_RULE_fk" index="0"/>
+		<object name="PASSENGER_fk" index="2"/>
 	</customidxs>
 </table>
 
@@ -2056,16 +2058,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-fk-pattern="{st}_fk"
 	 custom-color="#3c9a8b"
 	 src-table="airport.&quot;LUGGAGE_RULE&quot;"
-	 dst-table="airport.&quot;LUGGAGE_PER_TICKET&quot;"
-	 src-required="true" dst-required="false"
-	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
-
-<relationship name="DETAIL_TICKET_PURCHASE_has_many_LUGGAGE_PER_TICKET" type="rel1n" layers="0"
-	 src-col-pattern="{sc}"
-	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
-	 src-fk-pattern="{st}_fk"
-	 custom-color="#c6ff12"
-	 src-table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;"
 	 dst-table="airport.&quot;LUGGAGE_PER_TICKET&quot;"
 	 src-required="true" dst-required="false"
 	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
@@ -2362,22 +2354,34 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<special-pk-cols indexes="0"/>
 </relationship>
 
-<table name="PURCHASE_FLIGHT" layers="0" collapse-mode="2" max-obj-count="2" z-value="0">
+<table name="PURCHASE_FLIGHT" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
 	<schema name="airport"/>
 	<role name="postgres"/>
-	<position x="12820" y="3400"/>
-	<column name="purchase_id" not-null="true">
+	<position x="12740" y="3400"/>
+	<column name="purchase_flight_id" not-null="true">
 		<type name="serial" length="0"/>
 	</column>
 	<column name="purchase_total" not-null="true">
 		<type name="decimal" length="8" precision="2"/>
 	</column>
+	<column name="purchase_flight_date" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
 	<constraint name="PURCHASE_FLIGHT_pk" type="pk-constr" table="airport.&quot;PURCHASE_FLIGHT&quot;">
-		<columns names="purchase_id" ref-type="src-columns"/>
+		<columns names="purchase_flight_id" ref-type="src-columns"/>
 	</constraint>
+
+	<customidxs object-type="column">
+		<object name="purchase_id" index="1"/>
+		<object name="ticket_id" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="PASSENGER_fk" index="0"/>
+	</customidxs>
 </table>
 
-<table name="PURCHASE_FLIGHT_DETAIL" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+<table name="PURCHASE_FLIGHT_DETAIL" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
 	<schema name="airport"/>
 	<role name="postgres"/>
 	<position x="12840" y="4100"/>
@@ -2387,25 +2391,201 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="service_price" not-null="true">
 		<type name="decimal" length="6" precision="2"/>
 	</column>
-	<column name="purchase_total" not-null="true">
+	<column name="purchase_subtotal" not-null="true">
 		<type name="decimal" length="8" precision="2"/>
 	</column>
+
+	<customidxs object-type="column">
+		<object name="flight_id" index="2"/>
+		<object name="purchase_flight_id" index="0"/>
+		<object name="service_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="FLIGHT_HAS_SERVICE_fk" index="0"/>
+		<object name="PURCHASE_FLIGHT_DETAIL_pk" index="2"/>
+		<object name="PURCHASE_FLIGHT_fk" index="1"/>
+	</customidxs>
 </table>
+
+<table name="ROUND_TRIP_TICKET" layers="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="11140" y="3040"/>
+	<column name="purchase_return_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="ticket_return_id" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="purchase_id" index="0"/>
+		<object name="ticket_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="DETAIL_TICKET_PURCHASE_fk" index="0"/>
+		<object name="ROUND_TRIP_TICKET_pk" index="2"/>
+		<object name="ROUND_TRIP_TICKET_uq" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="ROUND_TRIP_TICKET_has_one_DETAIL_TICKET_PURCHASE" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#297257"
+	 src-table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;"
+	 dst-table="airport.&quot;ROUND_TRIP_TICKET&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<relationship name="FLIGHT_HAS_SERVICE_has_many_PURCHASE_FLIGHT_DETAIL" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#773fc2"
+	 src-table="airport.&quot;FLIGHT_HAS_SERVICE&quot;"
+	 dst-table="airport.&quot;PURCHASE_FLIGHT_DETAIL&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<relationship name="TICKET_PURCHASE_has_many_PURCHASE_PAYMENT_METHOD" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#4500e2"
+	 src-table="airport.&quot;TICKET_PURCHASE&quot;"
+	 dst-table="airport.&quot;PURCHASE_PAYMENT_METHOD&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<constraint name="PURCHASE_PAYMENT_METHOD_pk" type="pk-constr" alias="PURCHASE_PAYMENT_METHOD_pk" protected="true" table="airport.&quot;PURCHASE_PAYMENT_METHOD&quot;">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<table name="PASSENGER" layers="0" collapse-mode="2" max-obj-count="6" z-value="0">
+	<schema name="airport"/>
+	<role name="postgres"/>
+	<position x="12660" y="2560"/>
+	<column name="boarding_time">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="arrive_time">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+	</column>
+	<column name="passenger_observations">
+		<type name="text" length="0"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="purchase_id" index="0"/>
+		<object name="ticket_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="DETAIL_TICKET_PURCHASE_fk" index="1"/>
+		<object name="PASSENGER_pk" index="0"/>
+		<object name="PASSENGER_uq" index="2"/>
+	</customidxs>
+</table>
+
+<relationship name="PASSENGER_has_one_DETAIL_TICKET_PURCHASE" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3e9bea"
+	 src-table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;"
+	 dst-table="airport.&quot;PASSENGER&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<relationship name="PASSENGER_has_many_PURCHASE_FLIGHT" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#b7c41d"
+	 src-table="airport.&quot;PASSENGER&quot;"
+	 dst-table="airport.&quot;PURCHASE_FLIGHT&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
 
 <relationship name="PURCHASE_FLIGHT_has_many_PURCHASE_FLIGHT_DETAIL" type="rel1n" layers="0"
 	 src-col-pattern="{sc}"
 	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
 	 src-fk-pattern="{st}_fk"
-	 custom-color="#e8644f"
+	 custom-color="#a10296"
 	 src-table="airport.&quot;PURCHASE_FLIGHT&quot;"
 	 dst-table="airport.&quot;PURCHASE_FLIGHT_DETAIL&quot;"
 	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<constraint name="PURCHASE_FLIGHT_DETAIL_pk" type="pk-constr" alias="PURCHASE_FLIGHT_DETAIL_pk" protected="true" table="airport.&quot;PURCHASE_FLIGHT_DETAIL&quot;">
+		</constraint>
+	<special-pk-cols indexes="0"/>
+</relationship>
+
+<relationship name="PASSENGER_has_many_LUGGAGE_PER_TICKET" type="rel1n" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#04cc81"
+	 src-table="airport.&quot;PASSENGER&quot;"
+	 dst-table="airport.&quot;LUGGAGE_PER_TICKET&quot;"
+	 src-required="true" dst-required="false"
 	 deferrable="true" defer-type="INITIALLY IMMEDIATE"/>
 
-<table name="ROUND_TRIP_TICKET" layers="0" collapse-mode="2" max-obj-count="0" z-value="0">
+<table name="REVIEW" layers="0" collapse-mode="2" max-obj-count="7" z-value="0">
 	<schema name="airport"/>
 	<role name="postgres"/>
-	<position x="11180" y="3060"/>
+	<position x="12720" y="1400"/>
+	<column name="flight_calification" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="service_qualification" not-null="true">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="food_qualification">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="comment">
+		<type name="varchar" length="1000"/>
+	</column>
+
+	<customidxs object-type="column">
+		<object name="purchase_id" index="0"/>
+		<object name="ticket_id" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="PASSENGER_fk" index="1"/>
+		<object name="REVIEW_pk" index="0"/>
+		<object name="REVIEW_uq" index="2"/>
+	</customidxs>
 </table>
+
+<relationship name="REVIEW_has_one_PASSENGER" type="rel11" layers="0"
+	 src-col-pattern="{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#f0c6a1"
+	 src-table="airport.&quot;PASSENGER&quot;"
+	 dst-table="airport.&quot;REVIEW&quot;"
+	 src-required="true" dst-required="false"
+	 deferrable="true" defer-type="INITIALLY IMMEDIATE">
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<constraint name="DETAIL_TICKET_PURCHASE_RETURN_fk" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="airport.&quot;DETAIL_TICKET_PURCHASE&quot;" table="airport.&quot;ROUND_TRIP_TICKET&quot;">
+	<columns names="purchase_return_id,ticket_return_id" ref-type="src-columns"/>
+	<columns names="purchase_id,ticket_id" ref-type="dst-columns"/>
+</constraint>
 
 </dbmodel>
