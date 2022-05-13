@@ -1,0 +1,200 @@
+person_id,department,staff_salary,years_of_experience,years_of_work
+28,Sales,48169,33,4
+32,Business Development,11979,29,7
+36,Services,41658,32,14
+37,Research and Development,32759,35,5
+39,Marketing,16771,32,18
+41,Support,11844,31,19
+42,Marketing,30190,27,5
+44,Product Management,46261,15,5
+45,Accounting,16718,6,4
+46,Services,56681,24,6
+47,Training,16523,12,2
+66,Engineering,51869,34,8
+70,Business Development,34239,7,9
+71,Support,44721,40,3
+74,Legal,14043,5,10
+76,Sales,14142,38,6
+117,Research and Development,28924,23,17
+121,Human Resources,54959,11,13
+123,Sales,15737,38,12
+126,Engineering,51555,40,13
+128,Business Development,17315,19,20
+130,Support,24035,39,6
+131,Marketing,47691,12,3
+132,Sales,25183,40,8
+136,Business Development,59899,14,3
+137,Product Management,18944,4,19
+139,Research and Development,35758,21,8
+158,Accounting,40762,14,11
+163,Legal,47575,8,20
+167,Engineering,49901,20,16
+168,Engineering,14797,21,15
+169,Engineering,59947,12,18
+170,Engineering,27674,4,18
+171,Sales,26219,39,18
+172,Engineering,36875,10,15
+176,Engineering,44675,3,12
+177,Engineering,14985,29,16
+178,Engineering,40023,31,11
+182,Product Management,25698,3,7
+214,Product Management,17114,34,6
+215,Product Management,47724,9,6
+219,Human Resources,10929,14,12
+220,Human Resources,36851,33,3
+224,Engineering,40447,7,16
+225,Support,38751,29,3
+258,Accounting,51311,40,18
+261,Product Management,29753,18,19
+262,Sales,24276,22,6
+263,Product Management,12519,40,10
+264,Training,59006,24,9
+302,Legal,29783,27,9
+303,Legal,55457,33,12
+304,Engineering,42108,24,3
+306,Services,37382,39,15
+307,Legal,31852,3,3
+308,Engineering,19576,9,17
+312,Product Management,52844,5,13
+313,Engineering,58139,39,11
+315,Engineering,37088,36,10
+316,Services,10877,15,5
+317,Support,23936,29,13
+361,Sales,30790,9,13
+364,Training,37860,23,18
+367,Engineering,34687,11,12
+370,Research and Development,28809,23,13
+375,Support,14026,22,19
+376,Product Management,15741,30,7
+381,Engineering,46722,16,17
+382,Training,59006,23,7
+384,Sales,10128,4,5
+385,Sales,25673,13,6
+387,Research and Development,36685,10,14
+390,Support,42743,25,19
+391,Services,15631,39,18
+393,Services,28347,37,19
+395,Marketing,14873,16,10
+399,Accounting,38272,31,3
+400,Research and Development,32313,23,19
+401,Sales,26095,9,15
+456,Research and Development,44334,20,13
+457,Support,59830,19,3
+459,Human Resources,14302,30,10
+464,Accounting,38155,35,17
+465,Legal,32407,31,11
+467,Business Development,23749,8,6
+468,Accounting,35095,26,13
+469,Human Resources,31386,23,5
+472,Sales,47693,21,20
+474,Accounting,42546,20,19
+477,Business Development,54197,33,10
+522,Product Management,42866,37,17
+523,Legal,13681,21,3
+524,Research and Development,41850,27,18
+529,Human Resources,49249,34,17
+531,Marketing,53637,17,17
+532,Marketing,43465,15,10
+536,Sales,46528,15,10
+537,Research and Development,46210,38,9
+538,Sales,36877,7,18
+543,Marketing,46239,30,15
+547,Marketing,55596,22,6
+550,Product Management,54386,40,14
+552,Accounting,59240,31,14
+553,Accounting,11722,29,17
+554,Training,43696,31,20
+555,Engineering,18278,11,13
+556,Legal,51413,17,15
+559,Research and Development,33113,31,18
+560,Legal,25425,36,8
+562,Training,25859,17,7
+565,Sales,46128,38,9
+566,Support,33866,4,9
+567,Research and Development,22030,24,13
+569,Research and Development,39779,19,7
+570,Engineering,54279,39,4
+571,Business Development,16429,22,7
+574,Engineering,37710,3,15
+575,Business Development,33769,38,17
+576,Research and Development,34127,10,11
+632,Engineering,49509,38,7
+635,Legal,17899,20,7
+638,Services,15021,15,4
+639,Marketing,57682,26,6
+644,Engineering,24069,18,13
+645,Human Resources,18865,11,4
+647,Marketing,41620,25,17
+650,Business Development,12598,13,19
+654,Engineering,49059,12,7
+655,Sales,16379,31,17
+656,Business Development,47422,25,9
+658,Human Resources,39918,22,5
+659,Training,37067,20,17
+660,Services,41175,39,5
+710,Accounting,56662,28,16
+712,Engineering,58464,35,8
+713,Services,38822,28,8
+717,Marketing,56017,17,18
+718,Human Resources,22273,17,11
+719,Support,23518,3,4
+753,Support,31696,33,12
+755,Training,48534,7,10
+756,Human Resources,39384,33,7
+758,Engineering,21442,11,12
+760,Accounting,51674,24,17
+763,Services,17097,19,18
+765,Engineering,13353,9,15
+768,Training,54770,33,8
+770,Support,15573,39,8
+771,Business Development,25849,21,7
+774,Human Resources,25330,17,4
+776,Product Management,16808,36,17
+779,Business Development,36137,20,11
+782,Research and Development,45924,33,4
+783,Legal,40148,8,7
+784,Business Development,22641,15,14
+787,Support,17662,17,16
+788,Product Management,23473,37,5
+790,Product Management,44685,10,3
+791,Business Development,37268,38,15
+792,Product Management,30770,3,5
+793,Product Management,20154,38,19
+794,Services,41417,13,8
+795,Marketing,23453,3,6
+796,Human Resources,22409,36,6
+797,Accounting,28775,6,14
+801,Support,50323,9,2
+860,Accounting,24460,5,5
+861,Services,39382,24,9
+862,Training,41188,7,10
+865,Business Development,36505,17,9
+866,Support,48732,35,14
+914,Accounting,15468,20,17
+918,Sales,33157,8,10
+921,Human Resources,32262,11,2
+923,Research and Development,26670,39,3
+925,Research and Development,18646,3,2
+926,Services,41130,24,17
+928,Support,58700,21,2
+932,Business Development,37476,6,7
+959,Business Development,28121,18,6
+960,Business Development,18508,23,13
+961,Engineering,15594,26,2
+968,Training,43151,13,15
+977,Research and Development,23118,9,8
+979,Product Management,41409,24,19
+982,Product Management,17062,5,2
+983,Services,10093,29,12
+986,Marketing,34152,40,16
+987,Marketing,10606,25,7
+988,Human Resources,57906,33,8
+989,Training,24815,21,7
+990,Business Development,10659,4,13
+991,Marketing,59152,14,5
+992,Services,53922,38,16
+993,Engineering,53525,11,7
+995,Sales,22992,37,16
+996,Human Resources,33617,34,4
+997,Engineering,39941,30,2
+999,Support,26585,38,19
