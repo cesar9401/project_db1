@@ -1,0 +1,351 @@
+airport_id,name_airport,city,address,country_id
+1,Horizonte GT Airport,Ciudad de Guatemala,Ciudad de Guatemala,GTM
+2,Sycamore Airport,Gwangtan,18205 Carpenter Hill,AND
+3,Quincy Airport,Lydenburg,25285 Pearson Terrace,AND
+4,Spenser Airport,Nguékhokh,01 Fulton Hill,ARE
+5,Mitchell Airport,White City,272 Toban Drive,AFG
+6,Eagan Airport,Pyatigorskiy,157 Schmedeman Crossing,ATG
+7,Mifflin Airport,Rogowo,65 Novick Court,AIA
+8,Merchant Airport,Lgota Wielka,18 Farmco Trail,ALB
+9,Muir Airport,Santo Niño,51548 Luster Drive,ARM
+10,Saint Paul Airport,Grenoble,35080 Dawn Parkway,AGO
+11,Thompson Airport,Bangxi,9 Lien Avenue,ARG
+12,Utah Airport,Banjar Taro Kelod,47636 Pleasure Place,ARG
+13,Northview Airport,Swan Hills,9556 Northwestern Pass,ARG
+14,Memorial Airport,Villa Urquiza,8919 Fisk Center,ASM
+15,Straubel Airport,Buenos Aires,7036 Anthes Avenue,AUT
+16,Nelson Airport,General José de San Martín,91184 Gale Point,AUS
+17,Autumn Leaf Airport,Dinahican,88777 Scofield Plaza,ABW
+18,Sutherland Airport,Shinpokh,12 Texas Point,ALA
+19,Weeping Birch Airport,Amadora,09 Everett Place,AZE
+20,David Airport,Matalam,54 Vermont Street,BIH
+21,Kings Airport,Şabyā,63 Parkside Plaza,BRB
+22,Heffernan Airport,Kotuń,508 Manley Way,BGD
+23,Northview Airport,Fangjun,06749 Algoma Park,BEL
+24,Kropf Airport,Oxbow,55 Sunnyside Parkway,BFA
+25,Cody Airport,Yucheng,23901 Truax Crossing,BGR
+26,Mockingbird Airport,Göteborg,93 Morrow Alley,BHR
+27,Randy Airport,Santa Bárbara de Padrões,7635 Hazelcrest Hill,BDI
+28,Laurel Airport,Renhe,2600 Alpine Drive,BEN
+29,Maywood Airport,Vol’nyy Aul,19805 Huxley Lane,BLM
+30,Florence Airport,Avesta,66633 Chive Drive,BMU
+31,Cherokee Airport,Wangping,9033 Cherokee Road,BRN
+32,Columbus Airport,Seara,3 Spohn Alley,BOL
+33,Westend Airport,San Miguel Chicaj,3 Magdeline Hill,BRA
+34,Glacier Hill Airport,Changzhi,914 Milwaukee Place,BRA
+35,Anderson Airport,Krajan Siki,149 Harbort Place,BRA
+36,Shasta Airport,Östhammar,5 Fieldstone Center,BRA
+37,Meadow Vale Airport,Aix-en-Provence,9830 Messerschmidt Hill,BRA
+38,Monterey Airport,Wenceslau Braz,6781 Buell Street,BHS
+39,Alpine Airport,Žďár nad Sázavou Druhy,60383 Grover Junction,BTN
+40,Monterey Airport,Datong,4 Kedzie Point,BWA
+41,Mockingbird Airport,Kalandagan,6 American Ash Parkway,BLR
+42,Morrow Airport,Kampunglistrik,42963 Crest Line Hill,BLZ
+43,Sycamore Airport,Yermish’,15930 Thierer Terrace,CAN
+44,Donald Airport,Cabaret,13620 North Junction,CCK
+45,Clove Airport,Yang Chum Noi,98594 Brown Parkway,COD
+46,Continental Airport,Fantan,55125 Green Ridge Drive,CAF
+47,Sugar Airport,Gombangan,1 Shasta Drive,COG
+48,Sachtjen Airport,Dahuaishu,02343 Briar Crest Way,CHE
+49,Pearson Airport,Cipari,53 Swallow Point,CIV
+50,Birchwood Airport,Tanakbeak Daye,2517 Lakewood Avenue,COK
+51,Eggendart Airport,Bronkhorstspruit,549 Anthes Alley,CHL
+52,Thackeray Airport,Houxi,81 Bowman Court,CMR
+53,Eliot Airport,Shalqīya,1 Old Gate Plaza,CHN
+54,Anderson Airport,Bobowa,417 Grover Alley,COL
+55,American Airport,Vel’sk,26164 Schmedeman Terrace,CRI
+56,Farmco Airport,Vulcan,284 Troy Avenue,CUB
+57,Dwight Airport,Düsseldorf,73097 Reinke Plaza,CPV
+58,Dottie Airport,Lwengo,988 Blaine Junction,CUW
+59,Summerview Airport,Gugut,8 Debs Circle,CXR
+60,Autumn Leaf Airport,Adare,58 Maywood Drive,CYP
+61,Summit Airport,Fort Worth,88 Upham Junction,CZE
+62,Blaine Airport,Wangping,27 Dahle Parkway,CZE
+63,Kingsford Airport,Tumaco,0 Magdeline Parkway,CZE
+64,Bluejay Airport,Krasnyy Oktyabr’,42 Blue Bill Park Road,DEU
+65,Hermina Airport,Wuma,839 3rd Way,DJI
+66,Northfield Airport,La Rochelle,5 Prairie Rose Terrace,DNK
+67,Nova Airport,Uppsala,61171 Village Drive,DMA
+68,Warbler Airport,Berbek,58939 Kennedy Park,DOM
+69,Schiller Airport,Aleksandrovka,06 Meadow Ridge Street,DZA
+70,Superior Airport,Pakxong,73889 Main Center,ECU
+71,Ohio Airport,Perštejn,723 Quincy Way,ECU
+72,Farmco Airport,Jendouba,75150 American Ash Trail,ECU
+73,Dakota Airport,Krajan,53581 Farragut Park,ECU
+74,Jay Airport,Bells Corners,7754 Stang Pass,EST
+75,Oneill Airport,Sasnovy Bor,5180 Randy Center,EGY
+76,Fremont Airport,Wañgan,1 Milwaukee Circle,ESH
+77,Di Loreto Airport,Mirosławiec,237 Helena Point,ERI
+78,Carpenter Airport,Sadkowice,4 Sheridan Trail,ESP
+79,Eagle Crest Airport,Majingklak,93 Sherman Park,ESP
+80,Duke Airport,Dhaka,363 Rowland Parkway,ESP
+81,Lakeland Airport,Buga,4667 Reindahl Terrace,ESP
+82,Sachs Airport,Orneta,293 Longview Drive,ESP
+83,Gulseth Airport,Independencia,22 Darwin Terrace,ETH
+84,Northridge Airport,Tohautu,83 Eastlawn Junction,FIN
+85,Bartelt Airport,Licun,278 Marcy Court,FJI
+86,Alpine Airport,Honoria,85 Donald Terrace,FLK
+87,Morning Airport,Dan Makham Tia,3327 David Crossing,FSM
+88,Thierer Airport,Warungbanten,261 Havey Circle,FRO
+89,Oriole Airport,Beigang,74084 Summerview Trail,FRA
+90,Meadow Ridge Airport,Cabungan,3993 Schlimgen Hill,GAB
+91,Anderson Airport,Qingshui,33787 High Crossing Way,GBR
+92,Montana Airport,Shuyuan,929 1st Park,GRD
+93,Meadow Ridge Airport,Odrinhas,8 Surrey Lane,GEO
+94,Clove Airport,Angoulême,640 International Avenue,GUF
+95,Meadow Valley Airport,Siwalan,24745 Duke Junction,GGY
+96,John Wall Airport,São Joaquim,155 Coolidge Street,GHA
+97,Nelson Airport,Liliba,8 Pearson Plaza,GIB
+98,Service Airport,Linhu,597 Johnson Lane,GRL
+99,Coolidge Airport,Peras Ruivas,581 Huxley Place,GMB
+100,Northport Airport,Głuchołazy,6638 Heffernan Junction,GIN
+101,Gateway Airport,Kobayashi,9308 Mayfield Hill,GLP
+102,Sachtjen Airport,Lospalos,01620 Jenna Road,GNQ
+103,Cordelia Airport,Secang Barat,0 Menomonie Lane,GRC
+104,Dunning Airport,Herrljunga,2 Red Cloud Avenue,SGS
+105,Carioca Airport,Yaring,82 Kipling Drive,GTM
+106,Randy Airport,Riangbao,41512 Corben Terrace,GUM
+107,Dorton Airport,Rešetari,66961 Main Plaza,GNB
+108,Lawn Airport,Huangyang,521 Randy Plaza,GUY
+109,Green Airport,Bagahanlad,39261 Carberry Place,HKG
+110,Twin Pines Airport,Lianran,9 Warrior Alley,HND
+111,Chive Airport,Muruni,24765 Corben Lane,HRV
+112,Spenser Airport,Ferreira,14 Maryland Way,HTI
+113,Nevada Airport,Rizal,941 Trailsway Road,HUN
+114,Bartillon Airport,Södertälje,2 Roth Terrace,IDN
+115,Holy Cross Airport,Höganäs,37 Arkansas Street,IRL
+116,Center Airport,Guanshan,66654 Spenser Road,ISR
+117,Anderson Airport,Nunguan,23606 Lakewood Gardens Crossing,IMN
+118,Namekagon Airport,Marseille,90042 Glacier Hill Parkway,IND
+119,Corben Airport,Notranje Gorice,224 Carioca Trail,IOT
+120,Tomscot Airport,Morgados,06851 Caliangt Avenue,IRQ
+121,Jay Airport,Jifarong,36 Schiller Center,IRN
+122,Buell Airport,Orichi,474 Anderson Circle,ISL
+123,Artisan Airport,Pinhão,35064 Moose Road,ITA
+124,Hauk Airport,Ciomas,4240 Hanson Terrace,ITA
+125,Dennis Airport,Piña,99 Talmadge Center,ITA
+126,Lake View Airport,Loureiro,8130 Victoria Park,JEY
+127,Westend Airport,Ibaiti,534 Russell Place,JAM
+128,Prentice Airport,Xianzong,1 Longview Court,JOR
+129,Amoth Airport,Kenitra,82 Larry Alley,JPN
+130,Macpherson Airport,Nangewer,4 Fisk Terrace,KEN
+131,Sundown Airport,Omiš,37427 Heffernan Hill,KGZ
+132,Dottie Airport,Cengjia,59042 Rusk Park,KHM
+133,Fair Oaks Airport,Cherëmushki,49 Lien Place,KIR
+134,Harbort Airport,Menuma,220 East Lane,COM
+135,Jackson Airport,Sarkand,7721 Crest Line Terrace,KNA
+136,Valley Edge Airport,Sao Hai,2 Union Crossing,PRK
+137,Brickson Park Airport,Takaka,2246 Shelley Crossing,KOR
+138,Merchant Airport,Tianhu,14 Shasta Drive,KOR
+139,Messerschmidt Airport,Kępie Żaleszańskie,25 Holy Cross Park,KOR
+140,Blackbird Airport,Praszka,34597 Johnson Crossing,XKX
+141,Reinke Airport,Petrolina,4 Fairview Way,KWT
+142,Bellgrove Airport,Rebe,1687 Utah Court,CYM
+143,Milwaukee Airport,Chengxiang,672 Starling Junction,KAZ
+144,Lien Airport,Debre Werk’,13 Lawn Avenue,LAO
+145,Rutledge Airport,Tonosí,42719 Grasskamp Way,LBN
+146,Shelley Airport,Yabēlo,797 Memorial Court,LCA
+147,Gulseth Airport,Milaor,34995 Hintze Drive,LIE
+148,Arizona Airport,Wako,3 Merchant Crossing,LKA
+149,5th Airport,Luhans’ke,6460 Quincy Junction,LKA
+150,Village Airport,Chengxiang,89359 Kedzie Plaza,LKA
+151,Roth Airport,Baryshevo,1 Buhler Street,LBR
+152,Pawling Airport,Lesnikovo,702 Surrey Way,LSO
+153,Kim Airport,Kabinda,949 Roth Parkway,LTU
+154,Del Sol Airport,Comrat,6 Eastlawn Junction,LUX
+155,Manufacturers Airport,Yongchang,121 Grayhawk Street,LVA
+156,Farragut Airport,Jifnā,12 Lake View Street,LBY
+157,Havey Airport,Noebesa,131 Dahle Road,MAR
+158,Katie Airport,Menghe,92 Wayridge Circle,MCO
+159,Oak Valley Airport,Zhankhoteko,2 Mitchell Trail,MDA
+160,Toban Airport,Konin,4 Anzinger Center,MNE
+161,Charing Cross Airport,Gazimurskiy Zavod,05978 Scott Court,MAF
+162,Manufacturers Airport,Sedandang,0 West Drive,MDG
+163,Heath Airport,Srbinovo,969 Drewry Road,MHL
+164,Moose Airport,San Vicente,78898 Dixon Court,MKD
+165,Thierer Airport,Khodasy,2 Vahlen Avenue,MLI
+166,Bartelt Airport,Illéla,35 Kinsman Street,MMR
+167,Jay Airport,Sveg,714 Manitowish Street,MNG
+168,Lillian Airport,Buzet,8473 Sheridan Pass,MAC
+169,Bayside Airport,Västerås,7729 Paget Crossing,MNP
+170,Stoughton Airport,Gumuk Tengah,87232 Golf Course Parkway,MTQ
+171,Prairie Rose Airport,Goiana,1 Claremont Court,MRT
+172,Tomscot Airport,San Casimiro,16824 Summit Avenue,MSR
+173,Dennis Airport,Quận Phú Nhuận,593 Schlimgen Street,MLT
+174,Anniversary Airport,Aoqiao,71364 Golden Leaf Parkway,MUS
+175,Jackson Airport,Saint-Chamond,9692 Lyons Way,MDV
+176,Northridge Airport,Pontal,99650 Dorton Place,MWI
+177,Warbler Airport,Saint-Herblain,328 Fairfield Center,MEX
+178,Brown Airport,Mundri,615 Sullivan Pass,MEX
+179,Thierer Airport,Hegarsari,10 Shoshone Road,MYS
+180,Hoffman Airport,Wojnicz,37054 Haas Junction,MOZ
+181,Pine View Airport,Bairros,373 Summerview Center,NAM
+182,Bultman Airport,Salam,9 Drewry Lane,NCL
+183,Fieldstone Airport,Punākha,8 David Road,NER
+184,Hauk Airport,Dessalines,78420 Schurz Lane,NFK
+185,Emmet Airport,Juren,38 Killdeer Plaza,NGA
+186,Hazelcrest Airport,Jiuguan,63379 Bluestem Crossing,NIC
+187,Saint Paul Airport,Laholm,536 Hollow Ridge Terrace,NLD
+188,Shasta Airport,Luqiao,784 Buell Junction,NOR
+189,Corscot Airport,Järfälla,9 Hovde Crossing,NPL
+190,Barby Airport,Oshawa,650 Dunning Drive,NRU
+191,School Airport,Jedung,8 Jenna Crossing,NIU
+192,Veith Airport,Cururupu,20332 Raven Circle,NZL
+193,Westridge Airport,San Casimiro,4243 Merry Parkway,OMN
+194,Shasta Airport,Mizoch,30692 Northwestern Hill,PAN
+195,Acker Airport,Claye-Souilly,73 Clove Terrace,PER
+196,Anthes Airport,Piteå,3284 Hanson Center,PYF
+197,Northfield Airport,Haolin,8440 Service Circle,PNG
+198,Merry Airport,Xishaping,1088 Arizona Court,MYS
+199,Ronald Regan Airport,Zhouxi,65063 Brown Circle,MYS
+200,Hudson Airport,Colombes,2 Delaware Point,MOZ
+201,Maple Airport,Kabo,61396 Warbler Circle,NAM
+202,High Crossing Airport,Konstantynów,1697 Rusk Terrace,NCL
+203,Hayes Airport,Kumla,0015 Westridge Plaza,NER
+204,Autumn Leaf Airport,Mueang Phuket,369 Lighthouse Bay Point,NFK
+205,Crowley Airport,Quán Hành,606 Pankratz Circle,NGA
+206,Sullivan Airport,Albion,5003 Northridge Circle,NIC
+207,Dwight Airport,Zhangzhishan,30 Pepper Wood Point,NLD
+208,Maryland Airport,Xinmin,9490 Cardinal Parkway,NOR
+209,Steensland Airport,Pathum Ratchawongsa,355 1st Road,MOZ
+210,Summerview Airport,Kotikawatta,5331 Dawn Crossing,NAM
+211,Wayridge Airport,Peristerá,9 Golf View Alley,NCL
+212,Vermont Airport,Vilémov,31986 Pierstorff Center,NER
+213,Lighthouse Bay Airport,Washington,615 Chinook Trail,NFK
+214,Crownhardt Airport,Olszówka,935 4th Trail,NGA
+215,Thackeray Airport,Huzhuang,8 Forest Run Drive,NIC
+216,Westerfield Airport,Binagadi,11 Almo Way,NLD
+217,Stoughton Airport,Giyon,4 Eastwood Avenue,NOR
+218,Northridge Airport,Olopa,7808 Lyons Hill,NPL
+219,Morning Airport,Dijon,44956 Esker Point,NRU
+220,Texas Airport,Meipu,90 Kinsman Avenue,NIU
+221,Dixon Airport,Baishi,80 Kim Street,NZL
+222,Ruskin Airport,Dana,1320 Marquette Alley,OMN
+223,Waxwing Airport,Xunjian,7 John Wall Pass,PAN
+224,Victoria Airport,Portsmouth,4 Jay Place,PER
+225,Pepper Wood Airport,Morrito,3759 Muir Junction,PYF
+226,Hoepker Airport,Almaty,3703 Tomscot Hill,PNG
+227,Johnson Airport,Pobé,483 Eastlawn Parkway,PHL
+228,Bonner Airport,Shatian,677 Heffernan Parkway,PAK
+229,Summer Ridge Airport,Omutninsk,82830 Sutteridge Court,POL
+230,Village Airport,Tekeli,943 Harper Parkway,SPM
+231,Brown Airport,Momanalu,74 Pepper Wood Lane,PCN
+232,Moose Airport,Sigaboy,0 Bellgrove Center,PRI
+233,East Airport,Al Judayrah,06 Gulseth Parkway,PSE
+234,Lawn Airport,Pohonsirih,165 Schiller Junction,PRT
+235,Rockefeller Airport,Toyooka,64 Bayside Park,PLW
+236,Eliot Airport,Mozdok,557 Londonderry Plaza,PRY
+237,Fair Oaks Airport,Sv. Trojica v Slov. Goricah,728 Amoth Plaza,MMR
+238,Golf View Airport,Headlands,43 Stang Way,MNG
+239,8th Airport,Krasnokholm,93 Lakeland Park,MAC
+240,Twin Pines Airport,Le Havre,8273 Monica Court,MNP
+241,Prentice Airport,Napoli,475 Westport Lane,MTQ
+242,Arrowood Airport,Cabinda,0808 Chive Street,MRT
+243,Ruskin Airport,Debrecen,75 Canary Drive,MSR
+244,Ohio Airport,Paris 08,672 Rutledge Park,MLT
+245,Springs Airport,Dầu Tiếng,7 Ruskin Point,MUS
+246,8th Airport,Barisan,46281 Waxwing Plaza,MDV
+247,Ilene Airport,Cotabambas,3818 Anhalt Circle,MWI
+248,Jenna Airport,Nurota Shahri,71 Golf View Plaza,MEX
+249,Lien Airport,São Miguel dos Campos,24 Nevada Circle,MYS
+250,Grasskamp Airport,Umanday Centro,275 Burning Wood Road,MOZ
+251,Gina Airport,Aqqan,512 Delladonna Park,NAM
+252,Vidon Airport,Wangmang,32474 Meadow Valley Hill,NCL
+253,Brentwood Airport,Kogon,477 Hauk Drive,NER
+254,Florence Airport,Litian,74 Evergreen Court,NFK
+255,Vidon Airport,Capandanan,4 Sloan Pass,NGA
+256,Ryan Airport,Strassen,4552 Twin Pines Trail,NGA
+257,Sachs Airport,Kizhinga,4358 Dapin Junction,NIC
+258,Nevada Airport,Buena Esperanza,84 Packers Center,QAT
+259,Rowland Airport,Smithers,93 Brown Circle,REU
+260,Green Ridge Airport,Shanghu,6 Bayside Place,ROU
+261,Harper Airport,Liuhu,590 Mitchell Parkway,SRB
+262,David Airport,Zaindainxoi,48 Mallard Terrace,RUS
+263,Springview Airport,Arco de Baúlhe,182 Almo Way,RWA
+264,Butterfield Airport,Martinópolis,6995 Eastlawn Parkway,SAU
+265,Pierstorff Airport,Shumikhinskiy,0 Lien Crossing,SLB
+266,Bonner Airport,Puwa,102 Bellgrove Road,SYC
+267,Rieder Airport,Escuintla,6701 Kim Hill,SDN
+268,Cottonwood Airport,Coruripe,1 Arkansas Road,SSD
+269,Mosinee Airport,Ōhara,594 Charing Cross Parkway,SWE
+270,Dayton Airport,Victoriaville,3 Eastwood Drive,SGP
+271,Northwestern Airport,Wa’erma,266 Shopko Street,SHN
+272,Hintze Airport,Lagoa,1 Dahle Terrace,SVN
+273,Larry Airport,Morrinhos,485 Lukken Place,SJM
+274,Erie Airport,Nantes,1818 Walton Junction,SVK
+275,Northfield Airport,Kalumpang,033 Macpherson Court,SLE
+276,Kennedy Airport,Ochër,88784 Eagan Pass,NIC
+277,Waywood Airport,Gif-sur-Yvette,316 David Way,QAT
+278,Moland Airport,Porto Alegre,383 Twin Pines Center,REU
+279,Onsgard Airport,Taposan,242 Heath Alley,ROU
+280,Loomis Airport,Purworejo,9074 Miller Center,SRB
+281,Ryan Airport,Bindang,94528 North Terrace,RUS
+282,Vera Airport,Gon’ba,111 Parkside Alley,RWA
+283,Maryland Airport,Victoria,7872 Clemons Center,SAU
+284,Dryden Airport,Presnenskiy,09 Kensington Park,SLB
+285,Red Cloud Airport,Camangcamang,5257 International Terrace,SYC
+286,Del Sol Airport,Ludvika,11 North Terrace,SDN
+287,Westend Airport,Nanpu,377 4th Court,SSD
+288,Helena Airport,Reuleuet,4611 Hagan Crossing,SWE
+289,Hanson Airport,Kambia,3 Packers Pass,SGP
+290,Sycamore Airport,Yishi,824 Continental Court,SHN
+291,Schmedeman Airport,Torsås,548 Sloan Crossing,SHN
+292,Bluestem Airport,Savannakhét,67398 Bluestem Avenue,SHN
+293,Parkside Airport,Tānk,587 Maple Wood Pass,SVN
+294,Mcguire Airport,Yamaranguila,68 Forest Dale Street,SJM
+295,Nevada Airport,Tawangsari,09997 Scofield Circle,SVK
+296,International Airport,Puerto Quijarro,8204 Almo Pass,SLE
+297,Spohn Airport,Pozhang,182 Rutledge Court,SMR
+298,Ilene Airport,Lochovice,67112 New Castle Center,SEN
+299,Morningstar Airport,Águas,5914 Crest Line Alley,SOM
+300,Fair Oaks Airport,Lanshan,8560 Scoville Park,SUR
+301,La Follette Airport,Uttaradit,817 Chive Alley,STP
+302,Green Airport,Nīshābūr,1 Corscot Street,SVN
+303,Blackbird Airport,Yangmingbu,778 Westend Junction,SJM
+304,Jenifer Airport,Géfyra,54 Fairfield Court,SVK
+305,Superior Airport,Brest,3184 Pine View Way,SLE
+306,Green Ridge Airport,Pojan,70767 Blaine Way,SMR
+307,Reindahl Airport,Orneta,70 Forster Avenue,SEN
+308,Nevada Airport,Aroroy,32 Prairie Rose Street,SOM
+309,Pond Airport,Sinŭiju,6 Ohio Point,SUR
+310,Straubel Airport,Fangtang,5 Summer Ridge Alley,STP
+311,Forest Dale Airport,Grenoble,920 Hudson Street,SLV
+312,Glendale Airport,Colonia Catuete,331 Corben Point,SXM
+313,Coleman Airport,Eisen,8 Dexter Court,SYR
+314,Pierstorff Airport,Belén de Escobar,2 Myrtle Junction,SWZ
+315,Waubesa Airport,Kendal,76942 Westerfield Circle,TCA
+316,Meadow Vale Airport,Tomigusuku,6585 Green Ridge Point,TCD
+317,Dottie Airport,Le Mans,0 Sutteridge Court,ATF
+318,Carberry Airport,Gostivar,06042 Clove Circle,TGO
+319,Goodland Airport,Ganyi,5 Garrison Hill,THA
+320,Elgar Airport,Vancouver,0032 Cherokee Center,TJK
+321,Hauk Airport,Aoyang,04190 School Road,TKL
+322,Union Airport,Fanrong,25590 Riverside Plaza,TLS
+323,Anderson Airport,Alfeizerão,5855 Kenwood Circle,TKM
+324,Moland Airport,Puchong,3304 Stephen Alley,TUN
+325,Quincy Airport,Kramators’k,910 Vermont Street,TON
+326,Londonderry Airport,São Pedro Gafanhoeira,3 Thompson Drive,TUR
+327,Melby Airport,Granja,810 Summit Drive,TTO
+328,Golf Course Airport,‘Ayn al Bayḑā,9164 Rockefeller Street,TUV
+329,Lindbergh Airport,Matou,29325 Dapin Pass,TWN
+330,2nd Airport,K’olīto,3506 Susan Crossing,TZA
+331,Butterfield Airport,Sandwīp,093 Clyde Gallagher Point,UKR
+332,Oak Airport,Berlin,197 Almo Circle,UGA
+333,Maryland Airport,Umm al Qaywayn,5 Delladonna Road,USA
+334,Village Green Airport,Diapaga,1 Hovde Street,URY
+335,Melby Airport,Daqingshan,6856 Blue Bill Park Street,UZB
+336,Chinook Airport,Warmare,01 Hazelcrest Junction,VAT
+337,Darwin Airport,Río,38 Gale Pass,VCT
+338,Arapahoe Airport,Poctol,80533 Cody Crossing,VEN
+339,Huxley Airport,Yaroslavl,7936 Sunnyside Trail,VGB
+340,Jana Airport,Turnišče,9592 Briar Crest Court,VIR
+341,Tennyson Airport,Próti,9 Westend Pass,VNM
+342,Karstens Airport,Zlechov,4390 Spohn Circle,VUT
+343,Little Fleur Airport,Argavand,4511 Dexter Point,WLF
+344,Oak Valley Airport,Elimäki,52168 Golf Park,WSM
+345,Erie Airport,Baipenzhu,361 Hansons Drive,YEM
+346,Mitchell Airport,Ikšķile,2609 Fairview Alley,MYT
+347,Eagle Crest Airport,Koblain,4464 Banding Street,ZAF
+348,Walton Airport,Bahía Honda,69125 Brickson Park Pass,ZMB
+349,North Airport,Riyadh,1705 Florence Way,SCG
+350,Arkansas Airport,Walagar,7 Morning Point,ANT
