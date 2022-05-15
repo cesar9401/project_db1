@@ -1,0 +1,4 @@
+account_type_id,account_name,minimum_trips,minimum_miles,miles_per_dollar,purchase_percentage
+1,Cuenta Normal,0,0,1,0.25
+2,Cuenta Oro,8,250,1.5,0.50
+3,Cuenta Oro,12,250,2,1
