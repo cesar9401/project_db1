@@ -1,0 +1,11 @@
+service_id,service_price,type_of_service,service_available,service_description
+1,25.28,MOVIE,TRUE,rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo
+2,68.56,FOOD MENU,TRUE,rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede
+3,83.09,FOOD MENU,TRUE,nisl duis ac nibh fusce lacus purus aliquet at feugiat non
+4,75.98,FOOD MENU,TRUE,ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio
+5,82.8,FOOD MENU,TRUE,penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque
+6,59.31,MOVIE,TRUE,posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend
+7,96.39,MOVIE,TRUE,vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat
+8,45.0,FOOD MENU,TRUE,dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis
+9,43.6,FOOD MENU,TRUE,tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam
+10,44.81,DIGITAL SERVICE,TRUE,orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus
