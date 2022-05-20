@@ -1,0 +1,101 @@
+break_sick_day_id,request_date,request_description,request_status
+1,2018-11-24,justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate,APROBADO
+2,2019-07-11,ligula in lacus curabitur at ipsum ac tellus semper interdum,APROBADO
+3,2021-05-19,semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque,APROBADO
+4,2020-01-09,nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt,APROBADO
+5,2020-05-07,sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse,APROBADO
+6,2020-10-13,vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla,APROBADO
+7,2019-02-23,eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget,APROBADO
+8,2021-10-31,ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis,APROBADO
+9,2019-03-19,nibh in lectus pellentesque at nulla suspendisse potenti cras in,APROBADO
+10,2019-12-03,vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque,APROBADO
+11,2022-01-23,dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum,APROBADO
+12,2021-03-20,aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non,APROBADO
+13,2018-12-31,ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec,APROBADO
+14,2022-03-29,blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia,APROBADO
+15,2019-09-16,diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices,APROBADO
+16,2020-11-11,turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla,APROBADO
+17,2022-01-10,sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique,APROBADO
+18,2021-06-02,eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed,APROBADO
+19,2018-09-06,erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in,APROBADO
+20,2022-02-18,lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla,APROBADO
+21,2021-10-07,et tempus semper est quam pharetra magna ac consequat metus sapien,APROBADO
+22,2020-02-24,morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem,APROBADO
+23,2021-01-02,mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim,APROBADO
+24,2020-11-11,arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec,APROBADO
+25,2020-03-06,lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh,APROBADO
+26,2018-04-08,bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac,APROBADO
+27,2021-12-18,amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt,APROBADO
+28,2022-04-17,dui nec nisi volutpat eleifend donec ut dolor morbi vel,APROBADO
+29,2018-10-12,lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien,APROBADO
+30,2021-01-29,imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum,APROBADO
+31,2021-06-07,volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium,APROBADO
+32,2020-10-23,sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet,APROBADO
+33,2021-11-09,ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin,APROBADO
+34,2018-04-19,id nulla ultrices aliquet maecenas leo odio condimentum id luctus,APROBADO
+35,2018-06-09,magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt,APROBADO
+36,2020-03-02,maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis,APROBADO
+37,2019-10-25,donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus,APROBADO
+38,2018-07-28,nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper,APROBADO
+39,2018-05-06,sit amet justo morbi ut odio cras mi pede malesuada in imperdiet,APROBADO
+40,2022-01-11,dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non,APROBADO
+41,2018-08-24,id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at,APROBADO
+42,2018-06-23,molestie nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis natoque penatibus,APROBADO
+43,2019-08-12,eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus,APROBADO
+44,2018-11-12,non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget,APROBADO
+45,2019-02-19,ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede,APROBADO
+46,2020-10-10,tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo,APROBADO
+47,2020-10-02,libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet,APROBADO
+48,2019-07-23,ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede,APROBADO
+49,2021-03-17,in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis,APROBADO
+50,2022-02-24,mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante,APROBADO
+51,2020-08-25,id consequat in consequat ut nulla sed accumsan felis ut at dolor quis,APROBADO
+52,2020-03-19,donec dapibus duis at velit eu est congue elementum in,APROBADO
+53,2020-03-14,tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris,APROBADO
+54,2019-06-01,ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non,APROBADO
+55,2018-02-02,tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst,APROBADO
+56,2018-05-03,justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices,APROBADO
+57,2020-03-22,nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis,APROBADO
+58,2021-01-15,consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non,APROBADO
+59,2019-07-30,diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam,APROBADO
+60,2020-06-01,eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula,APROBADO
+61,2022-03-20,magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes,APROBADO
+62,2021-06-23,libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus,APROBADO
+63,2019-07-24,eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan,APROBADO
+64,2022-02-16,faucibus orci luctus et ultrices posuere cubilia curae donec pharetra,APROBADO
+65,2021-08-27,phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac,APROBADO
+66,2019-05-14,in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum,APROBADO
+67,2020-07-28,porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum,APROBADO
+68,2019-06-12,id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec,APROBADO
+69,2019-04-05,bibendum morbi non quam nec dui luctus rutrum nulla tellus in,APROBADO
+70,2020-12-09,eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros,APROBADO
+71,2018-11-27,velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum,APROBADO
+72,2021-08-20,eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum,APROBADO
+73,2019-05-13,parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id,APROBADO
+74,2018-09-18,lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus,APROBADO
+75,2021-07-20,parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa,APROBADO
+76,2020-02-23,eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a,APROBADO
+77,2022-05-09,ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio curabitur convallis,APROBADO
+78,2022-01-23,quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet,APROBADO
+79,2021-10-31,morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor,APROBADO
+80,2019-11-16,id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus,APROBADO
+81,2019-08-26,vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel,APROBADO
+82,2019-05-28,magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis,APROBADO
+83,2021-11-25,vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in,APROBADO
+84,2020-06-07,duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend,APROBADO
+85,2018-05-31,dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper,APROBADO
+86,2021-08-26,vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis,APROBADO
+87,2019-06-08,vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur,APROBADO
+88,2019-08-04,etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl,APROBADO
+89,2021-07-14,sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id,APROBADO
+90,2022-05-14,quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus,APROBADO
+91,2020-10-05,augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in,APROBADO
+92,2021-09-08,ipsum primis in faucibus orci luctus et ultrices posuere cubilia,APROBADO
+93,2020-12-23,integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor,APROBADO
+94,2018-06-24,erat fermentum justo nec condimentum neque sapien placerat ante nulla justo,APROBADO
+95,2018-08-31,sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl,APROBADO
+96,2021-01-04,porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus,APROBADO
+97,2022-01-11,vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat,APROBADO
+98,2020-01-26,mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque,APROBADO
+99,2018-03-16,amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec,APROBADO
+100,2020-10-30,est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam,APROBADO
